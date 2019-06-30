@@ -2,7 +2,6 @@
 * Projeto: medição local de temperatura e umidade
 * Autor: Pedro Bertoleti
 */
-#include <WiFi.h>
 #include <DHT.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
