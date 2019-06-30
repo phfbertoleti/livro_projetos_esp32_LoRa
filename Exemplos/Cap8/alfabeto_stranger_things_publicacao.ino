@@ -201,12 +201,19 @@ void escreve_mensagem_alfabeto(void)
 {
     int i;
     int led_para_acender=0;
+    char caracter_msg=0x00;
     
     for(i=0; i < msg_a_ser_escrita.length(); i++)
-    {
+    
         /* Obtem qual led da fita deve acender
            Ex: A: led 0; B: led 1; ... ; Z: led 25 */
-        led_para_acender = int(msg_a_ser_escrita.charAt(i)) - OFFSET_CONVERSAO_CHAR;
+        caracter_msg = msg_a_ser_escrita.charAt(i);
+
+        /* Qualquer caracter fora do range A..Z é ignorado */ 
+        if ( (caracter_msg < 'A') && (caracter_msg > 'Z') )
+           continue;
+           
+        led_para_acender = int(caracter_msg) - OFFSET_CONVERSAO_CHAR;
         
         leds_projeto[led_para_acender] = COR_LEDS; 
         FastLED.show();
@@ -215,8 +222,9 @@ void escreve_mensagem_alfabeto(void)
         leds_projeto[led_para_acender] = LED_APAGADO;
         FastLED.show();
         delay(TEMPO_ACENDIMENTO_LED);
-    }
+    
 }
+
 
 /* Função de setup */
 void setup() 
