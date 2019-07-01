@@ -1,5 +1,5 @@
 /*
-* Projeto: medição local, via LoRa e via mqtt de temperatura e umidade
+* Projeto: emissor- medição local, via LoRa e via mqtt de temperatura e umidade
 * Autor: Pedro Bertoleti
 */
 #include <WiFi.h>
